@@ -4,8 +4,11 @@ import streamlit as st
 import pandas as pd
 import sqlite3
 import plotly.express as px
+from wordcloud import WordCloud
+import matplotlib.pyplot as plt
 
 plotlydb = 'data/plotly.db'
+naverblogdb = 'data/NaverBlogDB.db'
 
 st.title('My first app')
 
@@ -37,3 +40,12 @@ user_mt_log = dfFromSql(plotlydb, 'SELECT * FROM user_mt_log').convert_dtypes()
 fig3 = px.bar(user_mt_log, x="date", y="counts", color="ct_2_text", title="Daily-Material-View-Top3", barmode='relative')
 # fig3.show()
 st.write(fig3)
+
+# st.subheader('hastagwordcloud')
+# hastags = dfFromSql(naverblogdb, 'SELECT * FROM post_tags').convert_dtypes()
+# words = ' '.join(hastags['tags'])
+# wordcloud = WordCloud().generate(words)
+# plt.imshow(wordcloud, interpolation='bilinear')
+# plt.axis("off")
+# plt.show()
+# st.pyplot()
