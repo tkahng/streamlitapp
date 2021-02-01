@@ -4,11 +4,11 @@ import streamlit as st
 import pandas as pd
 import sqlite3
 import plotly.express as px
-from wordcloud import WordCloud
-import matplotlib.pyplot as plt
+# from wordcloud import WordCloud
+# import matplotlib.pyplot as plt
 
 plotlydb = 'data/plotly.db'
-naverblogdb = 'data/NaverBlogDB.db'
+# naverblogdb = 'data/NaverBlogDB.db'
 
 st.title('My first app')
 
