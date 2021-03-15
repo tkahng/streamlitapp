@@ -27,6 +27,7 @@ def fndf(df, fn, cols):
     return df
 
 mt_catmap_df = dfFromSql(plotlydb, 'SELECT * FROM mt_catmap_df').convert_dtypes()
+mt_catmap_df['all'] = 'all'
 # catlvls = dfFromSql(plotlydb, 'SELECT * FROM ALLCAT_DF').convert_dtypes()
 # df = dfFromSql(plotlydb, 'SELECT * FROM mtdf').convert_dtypes()
 
@@ -35,7 +36,7 @@ st.subheader('Categories')
 fig = px.treemap(
 #     mt_catmap_df.pipe(cfilter, lambda x: x.ct_1_text.str.contains('자재 카테고리')), 
     mt_catmap_df,
-    path=['ct_1_text', 'ct_2_text', 'ct_3_text', 'mt_name'], 
+    path=['all', 'ct_1_text', 'ct_2_text', 'ct_3_text', 'mt_name'], 
 #     values='mt_no', 
 #     color='ct_2_text', 
 #     branchvalues='total',
